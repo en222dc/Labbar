@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Uppgift1
+namespace Uppgift5
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,11 +23,6 @@ namespace Uppgift1
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void BtnMessage_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Jäi, jag lyckades!!");
         }
     }
 }

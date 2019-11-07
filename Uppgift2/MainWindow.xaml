@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uppgift2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Fyll i ditt namn" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="label" Content="Namn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,44,0,0"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="99,75,0,0"/>
+        <Button x:Name="btnMessage" Click="btnMessage_Click" Content="Ok" HorizontalAlignment="Left" Margin="99,130,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
+    

@@ -24,5 +24,10 @@ namespace Uppgift2
         {
             InitializeComponent();
         }
+
+        private void btnMessage_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Hej {txtName.Text}! Du är underbar, vet du det?");
+        }
     }
 }

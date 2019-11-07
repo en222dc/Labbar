@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Knappen" Height="450" Width="800">
     <Grid>
-        <Button x:Name="BtnMessage" Content="Klicka på mig" Click="BtnMessage_Click" HorizontalAlignment="Left" Margin="347,173,0,0" VerticalAlignment="Top" Width="143" Height="59" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="22" RenderTransformOrigin="0.5,0.5" Background="#FF9DD48C">
+        <Button x:Name="BtnMessage" Content="Klicka på mig" Click="BtnMessage_Click" HorizontalAlignment="Left" Margin="311,174,0,0" VerticalAlignment="Top" Width="143" Height="60" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="22" RenderTransformOrigin="0.5,0.5" Background="#FF9DD48C">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
