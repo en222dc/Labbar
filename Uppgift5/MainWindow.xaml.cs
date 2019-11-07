@@ -24,5 +24,25 @@ namespace Uppgift5
         {
             InitializeComponent();
         }
+     
+        private void btnCalc_Click(object sender, RoutedEventArgs e)
+        {
+            double tal1;
+            double tal2;
+            double sum;
+
+            tal1 = double.Parse(txtTal1.Text);
+            tal2 = double.Parse(txtTal2.Text);
+            sum = (tal1 + tal2);
+
+            txtSum.Text = sum.ToString();
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtTal1.Clear();
+            txtTal2.Clear();
+            txtSum.Clear();
+        }
     }
 }
