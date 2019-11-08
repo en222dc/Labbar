@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uppgift4._1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Veckodagarna" Height="450" Width="800">
     <Grid>
         <Button x:Name="btnWed" Content="Onsdag" HorizontalAlignment="Left" Margin="320,72,0,0" VerticalAlignment="Top" Width="75" TabIndex="3" Click="btnWed_Click"/>
         <Button x:Name="btnFri" Content="Fredag" HorizontalAlignment="Left" Margin="275,203,0,0" VerticalAlignment="Top" Width="75" TabIndex="5" Click="btnFri_Click"/>
