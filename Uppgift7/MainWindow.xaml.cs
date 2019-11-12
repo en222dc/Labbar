@@ -24,5 +24,24 @@ namespace Uppgift7
         {
             InitializeComponent();
         }
+
+        private void btnCalc_Click(object sender, RoutedEventArgs e)
+        {
+            int tal1 = int.Parse(txtTal1.Text); //initierat Tal 1
+            int tal2 = int.Parse(txtTal2.Text); //initierat Tal 2
+            int resultInt = (tal1 / tal2); //initierat Heltal
+            int resultRem = (tal1 % tal2); //initiera Rest
+
+            //Nu måste jag räkna ut heltalen när knappen btnCalc klickas på
+
+            txtResultInt.Text = resultInt.ToString();
+
+            //Nu måste jag få in resten i txtRest också
+
+            txtResultRem.Text = resultRem.ToString();
+
+            //MADE IT!!!
+
+        }
     }
 }
