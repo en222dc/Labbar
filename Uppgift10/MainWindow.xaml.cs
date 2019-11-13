@@ -36,10 +36,13 @@ namespace Uppgift10
         
         Random rndGenerator = new Random();
         int rndNumber;
+
+        
         
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
-           rndNumber = rndGenerator.Next(0, 1001); //Slumpgenerator
+            rndNumber = rndGenerator.Next(0, 1001); //Slumpgenerator
+            btnGuess.IsEnabled = true;
         }
 
         private void btnGuess_Click(object sender, RoutedEventArgs e)
