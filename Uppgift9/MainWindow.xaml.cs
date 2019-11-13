@@ -31,42 +31,44 @@ namespace Uppgift9
             //15, 11, 7 och barntillåten är gränserna att förhålla sig till
             //En hälsning med namnet och resultatet ska komma upp i textblocket
 
-            int yourage = int.Parse(txtAge.Text);
-            string yourname = (txtName.Text);
+            int yourAge = int.Parse(txtAge.Text);
+            string yourName = (txtName.Text);
+            bool isAlone = (bool)rdoAlone.IsChecked;
+            bool withAdult = (bool)rdoAdult.IsChecked;
 
             
-            if (yourage >= 15)
+            if (yourAge >= 15)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se alla filmer.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se alla filmer.";
             }
         
-            else if (yourage < 7 && rdoAlone.IsChecked == true)
+            else if (yourAge < 7 && isAlone)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se barntillåtna filmer.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se barntillåtna filmer.";
             }
-            else if (yourage < 7 && rdoAdult.IsChecked == true)
+            else if (yourAge < 7 && withAdult)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se filmer med åldersgräns upp till 7 år med vuxen.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 7 år med vuxen.";
             }
 
 
-            else if (yourage >= 7 && yourage < 11 && rdoAlone.IsChecked == true)
+            else if (yourAge >= 7 && yourAge < 11 && isAlone)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se filmer med åldersgräns upp till 7 år.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 7 år.";
             }
-            else if (yourage >= 7 && yourage < 11 && rdoAdult.IsChecked == true)
+            else if (yourAge >= 7 && yourAge < 11 && withAdult)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se filmer med åldersgräns upp till 11 år med vuxen.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år med vuxen.";
             }
            
             
-            else if (yourage >= 11 && yourage < 15 && rdoAlone.IsChecked == true)
+            else if (yourAge >= 11 && yourAge < 15 && isAlone)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se filmer med åldersgräns upp till 11 år.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år.";
             }
-            else if (yourage >= 11 && yourage < 15 && rdoAdult.IsChecked == true)
+            else if (yourAge >= 11 && yourAge < 15 && withAdult)
             {
-                txtBlockResult.Text = $"Hej {yourname}! Du är {yourage} år gammal och får se filmer med åldersgräns upp till 11 år, oavsett om du har en vuxen med dig eller inte.";
+                txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år, oavsett om du har en vuxen med dig eller inte.";
             }
 
 
