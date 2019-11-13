@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uppgift8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kalkylator" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="txtTal1" HorizontalAlignment="Left" Height="23" Margin="63,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtTal2" HorizontalAlignment="Left" Height="23" Margin="314,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="Uppgift9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift9"
+        mc:Ignorable="d"
+        Title="Åldersgränsen" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblName" Content="Namn" HorizontalAlignment="Left" Margin="81,35,0,0" VerticalAlignment="Top" Width="45"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="81,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <Label x:Name="lblAge" Content="Ålder" HorizontalAlignment="Left" Margin="81,136,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="81,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <Button x:Name="btnControll" Content="Kontrollera" HorizontalAlignment="Left" Margin="347,167,0,0" VerticalAlignment="Top" Width="83" Height="23" Click="btnCont_Click"/>
+        <TextBlock x:Name="txtBlockResult" HorizontalAlignment="Left" Margin="81,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="107" Width="331"/>
+        <RadioButton x:Name="rdoAdult" Content="Med vuxen" HorizontalAlignment="Left" Margin="347,74,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdoAlone" Content="Utan vuxen" HorizontalAlignment="Left" Margin="347,94,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
