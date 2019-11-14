@@ -36,7 +36,7 @@ namespace Uppgift10
         
         Random rndGenerator = new Random();
         int rndNumber;
-
+        int nmbOfTries = 0; //initiera antalet gissningar     
         
         
         private void btnRandom_Click(object sender, RoutedEventArgs e)
@@ -49,6 +49,9 @@ namespace Uppgift10
         {
             int myGuess = int.Parse(txtGuess.Text);
             int diff = (myGuess - rndNumber); //differens för att kunna få till det spann som behövs för att få till extremvärdena.
+            nmbOfTries ++;   //antalet gissningar plussas på med en för varje klick på knappen                   
+
+            //Extremvärden först.
          
             //Tokhögt
             if (diff >= 100)
@@ -77,8 +80,12 @@ namespace Uppgift10
             //Helt perfekt!
             if (myGuess == rndNumber)
             {
-                txtBlResult.Text = $"Woohoo, du gissade helt RÄTT! Fasen va bäst du är!!";
+                txtBlResult.Text = $"Woohoo, du gissade helt RÄTT! Fasen va bäst du är!! Du klarade det på {nmbOfTries} försök.";
             }
+
+            
+            
+
 
         }
     }
