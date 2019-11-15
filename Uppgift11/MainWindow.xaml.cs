@@ -38,15 +38,15 @@ namespace Uppgift11
         {          
 
             tries = int.Parse(txtNmbOfTries.Text);
-            rightWay = 0;
-            wrongWay = 0;
+            rightWay = 0; //nollställer vid varje knapptryck
+            wrongWay = 0; //nollställer vid varje knapptryck
 
 
             for (int i = 0; i < tries; i++)
             {
-                rndGen = Random.Next(1, 101);
+                rndGen = Random.Next(1, 101); //kör från 1-101 för att få en mer jämn fördelning
                 
-                if (rndGen > prgBarLuck.Value)
+                if (rndGen > prgBarLuck.Value)//bara > istället för >= för att bara ladda ett värde
                 {
                     rightWay++;
                 }
@@ -57,7 +57,7 @@ namespace Uppgift11
                 }
 
             }
-            lblRightWay.Content = rightWay;
+            lblRightWay.Content = rightWay; //bättre att de är utanför loopen så ifon inte behöver skrivas över hela tiden
             lblWrongWay.Content = wrongWay;
         }
 
