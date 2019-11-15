@@ -35,14 +35,14 @@ namespace Uppgift10
 
         
         Random rndGenerator = new Random();
-        int rndNumber;
+        int rndNumber; //deklarera variabeln för det nummer som ska slumpas fram
         int nmbOfTries = 0; //initiera antalet gissningar     
         
         
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
-            rndNumber = rndGenerator.Next(0, 1001); //Slumpgenerator
-            btnGuess.IsEnabled = true;
+            rndNumber = rndGenerator.Next(1001); //Slumpgenerator
+            btnGuess.IsEnabled = true; //Gissaknappen blir tillgänglig först när slumpgeneratorn klickats på
         }
 
         private void btnGuess_Click(object sender, RoutedEventArgs e)
@@ -51,40 +51,37 @@ namespace Uppgift10
             int diff = (myGuess - rndNumber); //differens för att kunna få till det spann som behövs för att få till extremvärdena.
             nmbOfTries ++;   //antalet gissningar plussas på med en för varje klick på knappen                   
 
-            //Extremvärden först.
-         
-            //Tokhögt
-            if (diff >= 100)
-            {
-                txtBlResult.Text = "Haha, inte ens i närheten! Du gissade alldeles för högt!";
-            }
-
-            //Toklågt
-            if (diff <= -100)
-            {
-                txtBlResult.Text = "Nope. Du får försöka igen, det här var på tok för lågt!";
-            }
-
-            //Lite lågt
-            if (diff > -100 && diff < 0)
-            {
-                txtBlResult.Text = "Tyvärr, nu gissade du lite för lågt.";
-            }
-
-            //Lite högt
-            if (diff < 100 && diff > 0)
-            {
-                txtBlResult.Text = "Nja... Nu gissade du lite för högt.";
-            }
-
             //Helt perfekt!
             if (myGuess == rndNumber)
             {
                 txtBlResult.Text = $"Woohoo, du gissade helt RÄTT! Fasen va bäst du är!! Du klarade det på {nmbOfTries} försök.";
             }
 
-            
-            
+            //Extremvärden först.
+         
+            //Tokhögt
+           else if (diff >= 100)
+            {
+                txtBlResult.Text = "Haha, inte ens i närheten! Du gissade alldeles för högt!";
+            }
+
+            //Toklågt
+            else if (diff <= -100)
+            {
+                txtBlResult.Text = "Nope. Du får försöka igen, det här var på tok för lågt!";
+            }
+
+            //Lite lågt
+            else if (diff > -100 && diff < 0)
+            {
+                txtBlResult.Text = "Tyvärr, nu gissade du lite för lågt.";
+            }
+
+            //Lite högt
+            else if (diff < 100 && diff > 0)
+            {
+                txtBlResult.Text = "Nja... Nu gissade du lite för högt.";
+            }
 
 
         }
