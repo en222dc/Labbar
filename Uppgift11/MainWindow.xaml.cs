@@ -25,10 +25,10 @@ namespace Uppgift11
             InitializeComponent();
             prgBarLuck.Minimum = 0;
             prgBarLuck.Maximum = 100;
-            prgBarLuck.Value = 50;
+            prgBarLuck.Value = 50; //Gör så att baren står på mitten i början
         }
 
-        Random Random = new Random();
+        Random Random = new Random(); //Gör en slumpgenerator
         int rndGen;
         int tries;
         int rightWay = 0;
@@ -38,35 +38,38 @@ namespace Uppgift11
         {          
 
             tries = int.Parse(txtNmbOfTries.Text);
+            rightWay = 0;
+            wrongWay = 0;
+
 
             for (int i = 0; i < tries; i++)
             {
-                rndGen = Random.Next(101);
-
-                if (rndGen <= prgBarLuck.Value)
+                rndGen = Random.Next(1, 101);
+                
+                if (rndGen > prgBarLuck.Value)
                 {
                     rightWay++;
-                    lblRightWay.Content = rightWay;
                 }
 
                 else
                 {
                     wrongWay++;
-                    lblWrongWay.Content = wrongWay;
                 }
 
             }
+            lblRightWay.Content = rightWay;
+            lblWrongWay.Content = wrongWay;
         }
 
         private void btnBadLuck_Click(object sender, RoutedEventArgs e)
         {
-            prgBarLuck.Value -= 5;
+            prgBarLuck.Value += 5;
             lblProcent.Content = $"{prgBarLuck.Value}%";
         }
 
         private void btnLuck_Click(object sender, RoutedEventArgs e)
         {
-            prgBarLuck.Value += 5;
+            prgBarLuck.Value -= 5;
             lblProcent.Content = $"{prgBarLuck.Value}%";
         }
 
