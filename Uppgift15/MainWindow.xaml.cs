@@ -28,15 +28,19 @@ namespace Uppgift15
         private void btnConvert_Click(object sender, RoutedEventArgs e)
         {
             string yourMessage = txtMessage.Text;
+            int numberOfVowels = NumberOfVowels(yourMessage);
+            string jibberish = Jibberish(yourMessage);
+
+            lblNumberOfVowels.Content = numberOfVowels;
+            lblJibberish.Content = jibberish;
         }
-        
 
         public bool IsVowel(char isVowel)
         {
 
             char[] vowelsArray = new char[] { 'a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'A', 'E', 'I', 'O', 'U', 'Y', 'Å', 'Ä', 'Ö' };
             //mitt facit till vokaler
-            bool vowel = false;
+            bool vowel = false; //initierar till false för att ha ett utgångsläge
 
             foreach (char c in vowelsArray)
             {
@@ -49,11 +53,11 @@ namespace Uppgift15
             return vowel;
         }
 
-        public int NumberOfVowels(string numberOfVowels) //Varför har jag en sträng här???
+        public int NumberOfVowels(string input) 
         {
             int count = 0;
 
-            foreach (char c in numberOfVowels)
+            foreach (char c in input)
             {
                 if (IsVowel(c))
                 {
@@ -63,32 +67,25 @@ namespace Uppgift15
             return count;
         }
 
-        public string Jibberish(char convertTo)
+
+        public string Jibberish(string input)
         {
-            foreach (char c in collection)
+            string edited = ""; 
+
+            foreach (char c in input)
             {
+                if (IsVowel(c))
+                {
+                    edited += "ö";
+                }
 
+                else
+                {
+                    edited += c;
+                }
             }
-           
-           
+            return edited;
         }
-        
-
-
-        //public bool IsNumberOfVowels()  //räkna vokalerna
-        //{
-        //    int numberOfVowels = 0;
-
-        //    foreach (char c in yourMessage)
-        //    {
-        //        bool isVowel = "aeiouyåäöAEIOUYÅÄÖ".IndexOf(c) >= 0; //kollar om vokaler (= a, e, i, o, u, y, å, ä, ö)
-
-        //        if (true)
-        //        {
-        //            numberOfVowels++;
-        //        }
-        //    }
-        //    return numberOfVowels;
 
     }
 
