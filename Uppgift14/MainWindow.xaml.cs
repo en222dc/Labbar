@@ -25,8 +25,6 @@ namespace Uppgift14
             InitializeComponent();
         }
 
-
-
         public bool IsLetter()
         {
             string yourBirthYear = txtBirthYear.Text;
@@ -38,9 +36,6 @@ namespace Uppgift14
                     MessageBox.Show("Du får enbart mata in siffror!");
 
                     return true;
-                    
-                    //Får inte fortsätta och rätta till. Hur gör jag för att få komma tillbaka till txtBirthYear?
-
                 }
 
             }
@@ -52,18 +47,14 @@ namespace Uppgift14
         {
             bool result = IsLetter();
 
+            if (result == false)
+            {
             int birthYear = int.Parse(txtBirthYear.Text);
             int yourAge = DateTime.Now.Year - birthYear;
 
             MessageBox.Show($"Du är {yourAge} år gammal.");
+            }
 
         }
-
-
-
-
-
-
-
     }
 }
