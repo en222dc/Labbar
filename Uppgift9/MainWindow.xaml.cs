@@ -35,7 +35,6 @@ namespace Uppgift9
             string yourName = (txtName.Text);
             bool isAlone = (bool)rdoAlone.IsChecked;
             bool withAdult = (bool)rdoAdult.IsChecked;
-
             
             if (yourAge >= 15)
             {
@@ -51,7 +50,6 @@ namespace Uppgift9
                 txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 7 år med vuxen.";
             }
 
-
             else if (yourAge >= 7 && yourAge < 11 && isAlone)
             {
                 txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 7 år.";
@@ -61,7 +59,6 @@ namespace Uppgift9
                 txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år med vuxen.";
             }
            
-            
             else if (yourAge >= 11 && yourAge < 15 && isAlone)
             {
                 txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år.";
@@ -70,8 +67,6 @@ namespace Uppgift9
             {
                 txtBlockResult.Text = $"Hej {yourName}! Du är {yourAge} år gammal och får se filmer med åldersgräns upp till 11 år, oavsett om du har en vuxen med dig eller inte.";
             }
-
-
         }
     }
 }

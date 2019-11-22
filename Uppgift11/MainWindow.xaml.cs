@@ -36,11 +36,9 @@ namespace Uppgift11
 
         private void btnSandwich_Click(object sender, RoutedEventArgs e)
         {          
-
             tries = int.Parse(txtNmbOfTries.Text);
             rightWay = 0; //nollställer vid varje knapptryck
             wrongWay = 0; //nollställer vid varje knapptryck
-
 
             for (int i = 0; i < tries; i++)
             {
@@ -72,7 +70,6 @@ namespace Uppgift11
             prgBarLuck.Value -= 5;
             lblProcent.Content = $"{prgBarLuck.Value}%";
         }
-
     }
 
 }

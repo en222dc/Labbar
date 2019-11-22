@@ -32,12 +32,10 @@ namespace Uppgift10
         {
             InitializeComponent();
         }
-
         
         Random rndGenerator = new Random();
         int rndNumber; //deklarera variabeln för det nummer som ska slumpas fram
         int nmbOfTries = 0; //initiera antalet gissningar     
-        
         
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
@@ -82,8 +80,6 @@ namespace Uppgift10
             {
                 txtBlResult.Text = "Nja... Nu gissade du lite för högt.";
             }
-
-
         }
     }
 }

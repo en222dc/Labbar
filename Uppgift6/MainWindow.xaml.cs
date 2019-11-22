@@ -28,13 +28,9 @@ namespace Uppgift6
 
         private void btnAddition_Click(object sender, RoutedEventArgs e)
         {
-            double tal1;
-            double tal2;
-            double sum;
-
-            tal1 = double.Parse(txtTal1.Text);
-            tal2 = double.Parse(txtTal2.Text);
-            sum = (tal1 + tal2);
+            double tal1 = double.Parse(txtTal1.Text);
+            double tal2 = double.Parse(txtTal2.Text);
+            double sum = (tal1 + tal2);
 
             txtResult.Text = Math.Round(sum, 2).ToString();
             lblResult.Content = $"Summa";
@@ -42,13 +38,9 @@ namespace Uppgift6
 
         private void btnSubtraction_Click(object sender, RoutedEventArgs e)
         {
-            double tal1;
-            double tal2;
-            double dif;
-
-            tal1 = double.Parse(txtTal1.Text);
-            tal2 = double.Parse(txtTal2.Text);
-            dif = (tal1 - tal2);
+            double tal1 = double.Parse(txtTal1.Text);
+            double tal2 = double.Parse(txtTal2.Text);
+            double dif = (tal1 - tal2);
 
             txtResult.Text = Math.Round(dif, 2).ToString();
             lblResult.Content = $"Differens";
@@ -56,13 +48,9 @@ namespace Uppgift6
 
         private void btnMultiplication_Click(object sender, RoutedEventArgs e)
         {
-            double tal1;
-            double tal2;
-            double prod;
-
-            tal1 = double.Parse(txtTal1.Text);
-            tal2 = double.Parse(txtTal2.Text);
-            prod = (tal1 * tal2);
+            double tal1 = double.Parse(txtTal1.Text);
+            double tal2 = double.Parse(txtTal2.Text);
+            double prod = (tal1 * tal2);
 
             txtResult.Text = Math.Round(prod, 2).ToString();
             lblResult.Content = $"Produkt";
@@ -70,15 +58,10 @@ namespace Uppgift6
 
         private void btnDivision_Click(object sender, RoutedEventArgs e)
         {
-            double tal1;
-            double tal2;
-            double kvot;
+            double tal1 = double.Parse(txtTal1.Text);
+            double tal2 = double.Parse(txtTal2.Text);
+            double kvot = (tal1 / tal2);
 
-            tal1 = double.Parse(txtTal1.Text);
-            tal2 = double.Parse(txtTal2.Text);
-            kvot = (tal1 / tal2);
-
-           
             txtResult.Text = Math.Round(kvot, 2).ToString();
             lblResult.Content = $"Kvot";
         }

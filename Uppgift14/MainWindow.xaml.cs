@@ -24,7 +24,6 @@ namespace Uppgift14
         {
             InitializeComponent();
         }
-
         public bool IsLetter()
         {
             string yourBirthYear = txtBirthYear.Text;
@@ -37,7 +36,6 @@ namespace Uppgift14
 
                     return true;
                 }
-
             }
 
             return false;
@@ -54,7 +52,6 @@ namespace Uppgift14
 
             MessageBox.Show($"Du är {yourAge} år gammal.");
             }
-
         }
     }
 }

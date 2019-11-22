@@ -29,14 +29,12 @@ namespace Uppgift3
         {
             btn1.Content = "Klickad";
             btn2.Content = "Oklickad";
-
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
             btn2.Content = "Klickad";
             btn1.Content = "Oklickad";
-
         }
     }
 }

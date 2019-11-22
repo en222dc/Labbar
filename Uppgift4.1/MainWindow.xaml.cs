@@ -25,19 +25,18 @@ namespace Uppgift4._1
             InitializeComponent();
         }
 
-
         // satte tabindex i properties efter den ordning jag ville få mina knappar
         // Satte in en tom textbox och sa till den att visa text beroende på var man klickar
         // med hjälp av .Content.
 
-        private void btnMon_Click(object sender, RoutedEventArgs e)
-        {
-            lblDayClick.Content = $"Du klickade på knappen {btnMon.Content}.";
-        }
 
         private void btnTue_Click(object sender, RoutedEventArgs e)
         {
             lblDayClick.Content = $"Du klickade på knappen {btnTue.Content}.";
+        }
+        private void btnMon_Click(object sender, RoutedEventArgs e)
+        {
+            lblDayClick.Content = $"Du klickade på knappen {btnMon.Content}.";
         }
 
         private void btnWed_Click(object sender, RoutedEventArgs e)

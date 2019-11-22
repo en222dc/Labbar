@@ -27,13 +27,9 @@ namespace Uppgift5
      
         private void btnCalc_Click(object sender, RoutedEventArgs e)
         {
-            double tal1;
-            double tal2;
-            double sum;
-
-            tal1 = double.Parse(txtTal1.Text);
-            tal2 = double.Parse(txtTal2.Text);
-            sum = (tal1 + tal2);
+            double tal1 = double.Parse(txtTal1.Text);
+            double tal2 = double.Parse(txtTal2.Text);
+            double sum = (tal1 + tal2);
 
             txtSum.Text = sum.ToString();
         }

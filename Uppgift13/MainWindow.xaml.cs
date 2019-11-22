@@ -24,7 +24,6 @@ namespace Uppgift13
         {
             InitializeComponent();
         }
-                
         private void btnCount_Click(object sender, RoutedEventArgs e)
         {
             string text = txtInsertText.Text.ToLower(); //MÅSTE ha .Text med också, annars skiter det sig... .ToLower för att alla bokstäver ska tas med
@@ -38,10 +37,7 @@ namespace Uppgift13
                     sum++;
                     lblResult.Content = $"Hittade bokstaven {letter} {sum} gånger.";
                 }
-
             }
-
-
         }
     }
 }

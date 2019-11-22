@@ -37,7 +37,6 @@ namespace Uppgift15
 
         public bool IsVowel(char isVowel)
         {
-
             char[] vowelsArray = new char[] { 'a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'A', 'E', 'I', 'O', 'U', 'Y', 'Å', 'Ä', 'Ö' };
             //mitt facit till vokaler
             bool vowel = false; //initierar till false för att ha ett utgångsläge
@@ -49,7 +48,6 @@ namespace Uppgift15
                     vowel = true;
                 }
             }
-
             return vowel;
         }
 
@@ -66,7 +64,6 @@ namespace Uppgift15
             }
             return count;
         }
-
 
         public string Jibberish(string input)
         {
@@ -86,7 +83,5 @@ namespace Uppgift15
             }
             return edited;
         }
-
     }
-
 }

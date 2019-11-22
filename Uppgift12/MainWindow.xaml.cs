@@ -21,7 +21,6 @@ namespace Uppgift12
     
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -55,7 +54,6 @@ namespace Uppgift12
                 average = sum / 5;
                 txtAverage.Text = $"{average}";                
             }
-
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
