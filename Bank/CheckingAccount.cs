@@ -19,7 +19,7 @@ namespace Bank
         {
             decimal amountAvaliable = Balance + Credit;
 
-            if(amountAvaliable > withdraw)
+            if(amountAvaliable >= withdraw)
             {
                 Balance -= withdraw;
                 return true;

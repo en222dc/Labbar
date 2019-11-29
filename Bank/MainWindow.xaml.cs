@@ -41,7 +41,8 @@ namespace Bank
             //Evelina har fått tre olika konton
 
             checking.Deposit(500);
-            checking.Withdrawal(1000);
+
+            checking.Withdrawal(1500);
 
             MessageBox.Show(Evelina.BankAccounts[2].AccountBalance().ToString());
         }
