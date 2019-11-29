@@ -11,25 +11,25 @@ namespace Bank
         public string AccountType { get; set; }
         public decimal Balance { get; protected set; }
         public decimal Credit { get; protected set; }
+        public decimal TransactionFee { get; protected set; }
         //skapat properties
 
-        public void Deposit()
+        public void Deposit(decimal deposit)
         {
+            Balance += deposit;
             //metod för insättning
         }
 
-        public virtual bool Withdrawal()
+        public virtual bool Withdrawal(decimal withdraw)
         {
-            //metod för uttag
-            //returvärde ska vara bool - inte "void"
             return(true); 
-            //ska stå något annat i (true)
+            //metod för uttag
         }
 
-        public virtual void AccountBalance()
+        public decimal AccountBalance()
         {
-            //metod för uträkning av saldo+ev kredit
-            //gav namnet eftersom Balance var upptaget av en property, men det kanske går att göra annorlunda?
+            return Balance;
+            //gav namnet AccountBalance eftersom Balance var upptaget av en property.
         }
     }
 }

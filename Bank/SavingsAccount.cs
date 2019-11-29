@@ -8,6 +8,9 @@ namespace Bank
 {
     class SavingsAccount : BankAccount
     {
-        
+        public SavingsAccount()
+        {
+            AccountType = "Sparkonto";
+        }
     }
 }

@@ -27,7 +27,23 @@ namespace Bank
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          
+            Customer Evelina = new Customer("0739070223", "Evelina", "Nilsson", "Ålfiskaregatan 43");
+            //Skapar en kund
+
+            SavingsAccount savings = new SavingsAccount();
+            RetirementAccount retirement = new RetirementAccount();
+            CheckingAccount checking = new CheckingAccount();
+            //skapat variabler för de olika kontotyperna
+
+            Evelina.BankAccounts.Add(savings);
+            Evelina.BankAccounts.Add(retirement);
+            Evelina.BankAccounts.Add(checking);
+            //Evelina har fått tre olika konton
+
+            checking.Deposit(500);
+            checking.Withdrawal(1000);
+
+            MessageBox.Show(Evelina.BankAccounts[2].AccountBalance().ToString());
         }
     }
 }
