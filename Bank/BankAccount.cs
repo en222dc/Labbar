@@ -10,8 +10,6 @@ namespace Bank
     {
         public string AccountType { get; set; }
         public decimal Balance { get; protected set; }
-        public decimal Credit { get; protected set; }
-        public decimal TransactionFee { get; protected set; }
         //skapat properties
 
         public void Deposit(decimal deposit)
@@ -20,16 +18,27 @@ namespace Bank
             //metod för insättning
         }
 
+        public override string ToString()
+        {
+            return $"{AccountType} {Balance:c}"; //Måste få in så att krediten räknas med i CheckingAccount också...
+        }
+
         public virtual bool Withdrawal(decimal withdraw)
         {
+            if (withdraw > Balance)
+            {
+                return false;
+            }
+
+            Balance -= withdraw;
             return(true); 
             //metod för uttag
         }
 
-        public decimal AccountBalance()
+        public virtual decimal GetBalance()
         {
             return Balance;
-            //gav namnet AccountBalance eftersom Balance var upptaget av en property.
+            //gav namnet GetBalance eftersom Balance var upptaget av en property.
         }
     }
 }

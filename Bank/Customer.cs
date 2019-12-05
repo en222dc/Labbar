@@ -8,22 +8,35 @@ namespace Bank
 {
     class Customer
     {
-        private string CellPhone { get; set; } 
-        private string FirstName { get; set; }
-        private string LastName { get; set; } 
-        private string Address { get; set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; } 
+        public string CellPhone { get; private set; } 
         // Skapar properties som skall lagras i klassen Customer. (Personuppgifter).
 
-        public List<BankAccount> BankAccounts { get; protected set; } = new List<BankAccount>();
+        public List<BankAccount> bankAccounts = new List<BankAccount>();
         //Lista för de olika konton som kunden har.
 
-        public Customer(string cellPhone, string firstName, string lastName, string address)
+        public Customer(string firstName, string lastName, string cellPhone)
         {
-            CellPhone = cellPhone;
             FirstName = firstName;
             LastName = lastName;
-            Address = address;
+            CellPhone = cellPhone;
             //länkat Properties med parametrar
+        }
+
+        public bool AddBankAccount(BankAccount bankAccount)
+        {
+            if (bankAccounts.Count < 4)
+            {
+                bankAccounts.Add(bankAccount);
+                return true;
+            }
+            return false;
+        }
+
+        public override string ToString() // Magisk metod för att visa för och efternamn i combobox.
+        {
+            return $"{FirstName} {LastName}";
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Bank
 {
     class CheckingAccount : BankAccount
     {
+        public decimal Credit { get; protected set; }
+
         public CheckingAccount()
         {
             AccountType = "Lönekonto";
-            Credit = 1000;
-            //krediten ska flyttas sen, tänker mig att det borde vara i xaml-koden istället...
         }
 
         public override bool Withdrawal(decimal withdraw)
@@ -25,6 +25,11 @@ namespace Bank
                 return true;
             }
             return false;
+        }
+
+        public decimal GetCredit() //försöker fixa en metod som kan skicka credit till BankAccount
+        {
+            return Credit;
         }
     }
 }

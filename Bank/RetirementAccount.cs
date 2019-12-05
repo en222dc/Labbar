@@ -8,6 +8,8 @@ namespace Bank
 {
     class RetirementAccount : BankAccount
     {
+        public decimal TransactionFee { get; protected set; }
+
         public RetirementAccount()
         {
             AccountType = "Pensionspar";

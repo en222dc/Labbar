@@ -23,28 +23,144 @@ namespace Bank
         public MainWindow()
         {
             InitializeComponent();
+            CboCustomer.ItemsSource = customerList;
+            CboCustomer.SelectedIndex = 0;
+        }
+        List<Customer> customerList { get; set; } = new List<Customer>();
+        //CheckingAccount checkingAccount;
+        //SavingsAccount savingsAccount;
+        //RetirementAccount retirementAccount;
+        Customer activeCustomer;
+        
+
+        public void AddCustomer()
+        {
+            Customer newCustomer = new Customer(TxtFirstname.Text, TxtLastname.Text, TxtPhone.Text);
+            customerList.Add(newCustomer);
+
+            string customerName = TxtFirstname.Text;
+            MessageBox.Show($"{customerName} har lagts till som kund.");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void UpdateCustomerList()
         {
-            Customer Evelina = new Customer("0739070223", "Evelina", "Nilsson", "Ålfiskaregatan 43");
-            //Skapar en kund
+            CboCustomer.ItemsSource = null;
+            CboCustomer.ItemsSource = customerList;
+            CboCustomer.SelectedIndex = 0;
+            activeCustomer = CboCustomer.SelectedItem as Customer;
+        }
 
-            SavingsAccount savings = new SavingsAccount();
-            RetirementAccount retirement = new RetirementAccount();
-            CheckingAccount checking = new CheckingAccount();
-            //skapat variabler för de olika kontotyperna
+        private void UpdateAccounts()
+        {
+            CboSelectAccount.ItemsSource = null;
+            CboSelectAccount.ItemsSource = activeCustomer.bankAccounts;
+        }
 
-            Evelina.BankAccounts.Add(savings);
-            Evelina.BankAccounts.Add(retirement);
-            Evelina.BankAccounts.Add(checking);
-            //Evelina har fått tre olika konton
+        public void AddAccount()
+        {
+            if (OptChecking.IsChecked == true)
+            {
+                BankAccount Checking = new CheckingAccount(decimal.Parse(TxtCredit.Text));
+                activeCustomer.AddBankAccount(Checking);
+                MessageBox.Show("Du har skapat ett lönekonto.");
+                return;
+            }
 
-            checking.Deposit(500);
+            else if (OptSavings.IsChecked == true)
+            {
+                BankAccount Savings = new SavingsAccount();
+                activeCustomer.AddBankAccount(Savings);
+                MessageBox.Show("Du har skapat ett sparkonto.");
+                return;
+            }
 
-            checking.Withdrawal(1500);
+            else if (OptRetirement.IsChecked == true)
+            {
+                BankAccount Retirement = new RetirementAccount();
+                activeCustomer.AddBankAccount(Retirement);
+                MessageBox.Show("Du har skapat ett pensionskonto.");
+                return;
+            }
 
-            MessageBox.Show(Evelina.BankAccounts[2].AccountBalance().ToString());
+       
+    }
+        private void BtnNewCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            AddCustomer();
+            UpdateCustomerList();
+            TxtFirstname.Clear();
+            TxtLastname.Clear();
+            TxtPhone.Clear();
+        }
+
+        private void CboCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            activeCustomer = (Customer)CboCustomer.SelectedItem;
+        }
+
+        private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            activeCustomer = CboCustomer.SelectedItem as Customer;
+            CboSelectAccount.ItemsSource = activeCustomer.bankAccounts;
+        }
+
+        
+        private void BtnSelectAccount_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+       
+        private void BtnSaveTransaction_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
+
+        
+        private void BtnNewAccount_Click(object sender, RoutedEventArgs e)
+        {
+            AddAccount();
+            UpdateAccounts();
+            TxtCredit.Clear();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //private void Button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    Customer Evelina = new Customer("0739070223", "Evelina", "Nilsson");
+    //    //Skapar en kund
+
+    //    SavingsAccount savings = new SavingsAccount();
+    //    RetirementAccount retirement = new RetirementAccount();
+    //    CheckingAccount checking = new CheckingAccount();
+    //    //skapat variabler för de olika kontotyperna
+
+    //    Evelina.BankAccounts.Add(savings);
+    //    Evelina.BankAccounts.Add(retirement);
+    //    Evelina.BankAccounts.Add(checking);
+    //    //Evelina har fått tre olika konton
+
+    //    checking.Deposit(500);
+
+    //    checking.Withdrawal(1500);
+
+    //    MessageBox.Show(Evelina.BankAccounts[2].GetBalance().ToString());
+    //}
 }
+
