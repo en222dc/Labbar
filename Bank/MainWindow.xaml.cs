@@ -24,7 +24,6 @@ namespace Bank
         {
             InitializeComponent();
             CboCustomer.ItemsSource = customerList;
-            //CboCustomer.SelectedIndex = 0;
         }
 
         List<Customer> customerList { get; set; } = new List<Customer>();
@@ -32,6 +31,7 @@ namespace Bank
         BankAccount selectedAccount;
 
         decimal chosenAmount;
+        decimal amount;
 
 
         public void AddCustomer()
@@ -65,18 +65,16 @@ namespace Bank
         {
             if (OptChecking.IsChecked == true)
             {
-                //if (inget är ifyllt i TxtCredit)
-                //{
-                //    MessageBox.Show("Var vänlig fyll i önskad kredit.");
-                //}
-
-                //else
-                //{
-                BankAccount Checking = new CheckingAccount(decimal.Parse(TxtCredit.Text));
-                activeCustomer.AddBankAccount(Checking);
-                MessageBox.Show("Du har skapat ett lönekonto.");
-                return;
-                //}
+                if(decimal.TryParse(TxtCredit.Text, out amount))
+                {
+                    BankAccount Checking = new CheckingAccount(amount);
+                    activeCustomer.AddBankAccount(Checking);
+                    MessageBox.Show("Du har skapat ett lönekonto.");
+                }
+                else
+                {
+                    MessageBox.Show("Du behöver fylla i önskad kredit.");
+                }
             }
 
             else if (OptSavings.IsChecked == true)
@@ -84,7 +82,6 @@ namespace Bank
                 BankAccount Savings = new SavingsAccount();
                 activeCustomer.AddBankAccount(Savings);
                 MessageBox.Show("Du har skapat ett sparkonto.");
-                return;
             }
 
             else if (OptRetirement.IsChecked == true)
@@ -92,7 +89,6 @@ namespace Bank
                 BankAccount Retirement = new RetirementAccount();
                 activeCustomer.AddBankAccount(Retirement);
                 MessageBox.Show("Du har skapat ett pensionskonto.");
-                return;
             }
         }
 
@@ -124,31 +120,23 @@ namespace Bank
             selectedAccount = CboSelectAccount.SelectedItem as BankAccount;
         }
 
-       
+
         private void BtnSaveTransaction_Click(object sender, RoutedEventArgs e)
         {
             chosenAmount = decimal.Parse(TxtAmount.Text);
 
             if (OptWithdrawal.IsChecked == true)
             {
-                if (selectedAccount.Withdrawal(chosenAmount))
-                {
-                    return;
-                }
-                UpdateAccounts();
-
                 if (!selectedAccount.Withdrawal(chosenAmount))
                 {
                     MessageBox.Show("Tyvärr, du saknar täckning på kontot.");
                 }
-                UpdateAccounts();
             }
-
             else if (OptDeposit.IsChecked == true)
             {
                 selectedAccount.Deposit(chosenAmount);
-                UpdateAccounts();
             }
+            UpdateAccounts();
             TxtAmount.Clear();
         }
         

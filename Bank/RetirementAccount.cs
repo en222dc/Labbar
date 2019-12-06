@@ -28,7 +28,7 @@ namespace Bank
         {
             fee = CalcTransactionFee(withdraw);
 
-            if(Balance > (withdraw + fee))
+            if(Balance >= (withdraw + fee))
             {
                 Balance -= (withdraw + fee);
                 return true;

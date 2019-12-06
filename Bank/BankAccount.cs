@@ -20,7 +20,7 @@ namespace Bank
 
         public override string ToString()
         {
-            return $"{AccountType} {Balance:c}"; //Måste få in så att krediten räknas med i CheckingAccount också...
+            return $"{AccountType} Saldo: {Balance:c} Disponibelt belopp: {GetBalance():c}"; //Måste få in så att krediten räknas med i CheckingAccount också...
         }
 
         public virtual bool Withdrawal(decimal withdraw)
@@ -35,10 +35,10 @@ namespace Bank
             //metod för uttag
         }
 
-        //public virtual decimal GetBalance()
-        //{
-        //    return Balance;
-        //    //gav namnet GetBalance eftersom Balance var upptaget av en property.
-        //}
+        public virtual decimal GetBalance()
+        {
+            return Balance;
+            //gav namnet GetBalance eftersom Balance var upptaget av en property.
+        }
     }
 }

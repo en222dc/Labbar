@@ -12,6 +12,7 @@ namespace Bank
 
         public CheckingAccount(decimal c)
         {
+            Credit = c;
             AccountType = "Lönekonto";
         }
 
@@ -27,9 +28,10 @@ namespace Bank
             return false;
         }
 
-        public decimal GetCredit() //försöker fixa en metod som kan skicka credit till BankAccount
+        public override decimal GetBalance()
         {
-            return Credit;
+            return Balance + Credit;
         }
+
     }
 }
