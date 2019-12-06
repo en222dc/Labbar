@@ -10,6 +10,8 @@ namespace Bank
     {
         public decimal TransactionFee { get; protected set; }
 
+        decimal fee;
+
         public RetirementAccount()
         {
             AccountType = "Pensionspar";
@@ -24,8 +26,7 @@ namespace Bank
 
         public override bool Withdrawal(decimal withdraw)
         {
-            decimal fee = CalcTransactionFee(withdraw);
-            //Skapat en variabel för uttagsavgiften
+            fee = CalcTransactionFee(withdraw);
 
             if(Balance > (withdraw + fee))
             {

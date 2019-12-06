@@ -14,7 +14,7 @@ namespace Bank
         // Skapar properties som skall lagras i klassen Customer. (Personuppgifter).
 
         public List<BankAccount> bankAccounts = new List<BankAccount>();
-        //Lista för de olika konton som kunden har.
+        //Lista för de olika konton som kunderna har.
 
         public Customer(string firstName, string lastName, string cellPhone)
         {

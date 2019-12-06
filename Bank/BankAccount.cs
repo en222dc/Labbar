@@ -35,10 +35,10 @@ namespace Bank
             //metod för uttag
         }
 
-        public virtual decimal GetBalance()
-        {
-            return Balance;
-            //gav namnet GetBalance eftersom Balance var upptaget av en property.
-        }
+        //public virtual decimal GetBalance()
+        //{
+        //    return Balance;
+        //    //gav namnet GetBalance eftersom Balance var upptaget av en property.
+        //}
     }
 }

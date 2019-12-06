@@ -24,14 +24,15 @@ namespace Bank
         {
             InitializeComponent();
             CboCustomer.ItemsSource = customerList;
-            CboCustomer.SelectedIndex = 0;
+            //CboCustomer.SelectedIndex = 0;
         }
+
         List<Customer> customerList { get; set; } = new List<Customer>();
-        //CheckingAccount checkingAccount;
-        //SavingsAccount savingsAccount;
-        //RetirementAccount retirementAccount;
         Customer activeCustomer;
-        
+        BankAccount selectedAccount;
+
+        decimal chosenAmount;
+
 
         public void AddCustomer()
         {
@@ -42,6 +43,7 @@ namespace Bank
             MessageBox.Show($"{customerName} har lagts till som kund.");
         }
 
+
         private void UpdateCustomerList()
         {
             CboCustomer.ItemsSource = null;
@@ -50,20 +52,31 @@ namespace Bank
             activeCustomer = CboCustomer.SelectedItem as Customer;
         }
 
+
         private void UpdateAccounts()
         {
             CboSelectAccount.ItemsSource = null;
             CboSelectAccount.ItemsSource = activeCustomer.bankAccounts;
+            CboSelectAccount.SelectedIndex = 0;
         }
+
 
         public void AddAccount()
         {
             if (OptChecking.IsChecked == true)
             {
+                //if (inget är ifyllt i TxtCredit)
+                //{
+                //    MessageBox.Show("Var vänlig fyll i önskad kredit.");
+                //}
+
+                //else
+                //{
                 BankAccount Checking = new CheckingAccount(decimal.Parse(TxtCredit.Text));
                 activeCustomer.AddBankAccount(Checking);
                 MessageBox.Show("Du har skapat ett lönekonto.");
                 return;
+                //}
             }
 
             else if (OptSavings.IsChecked == true)
@@ -81,9 +94,9 @@ namespace Bank
                 MessageBox.Show("Du har skapat ett pensionskonto.");
                 return;
             }
+        }
 
-       
-    }
+
         private void BtnNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             AddCustomer();
@@ -98,6 +111,7 @@ namespace Bank
             activeCustomer = (Customer)CboCustomer.SelectedItem;
         }
 
+
         private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
         {
             activeCustomer = CboCustomer.SelectedItem as Customer;
@@ -107,18 +121,38 @@ namespace Bank
         
         private void BtnSelectAccount_Click(object sender, RoutedEventArgs e)
         {
-            
+            selectedAccount = CboSelectAccount.SelectedItem as BankAccount;
         }
 
        
         private void BtnSaveTransaction_Click(object sender, RoutedEventArgs e)
         {
+            chosenAmount = decimal.Parse(TxtAmount.Text);
 
+            if (OptWithdrawal.IsChecked == true)
+            {
+                if (selectedAccount.Withdrawal(chosenAmount))
+                {
+                    return;
+                }
+                UpdateAccounts();
+
+                if (!selectedAccount.Withdrawal(chosenAmount))
+                {
+                    MessageBox.Show("Tyvärr, du saknar täckning på kontot.");
+                }
+                UpdateAccounts();
+            }
+
+            else if (OptDeposit.IsChecked == true)
+            {
+                selectedAccount.Deposit(chosenAmount);
+                UpdateAccounts();
+            }
+            TxtAmount.Clear();
         }
-
         
 
-        
         private void BtnNewAccount_Click(object sender, RoutedEventArgs e)
         {
             AddAccount();
@@ -127,40 +161,5 @@ namespace Bank
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //private void Button_Click(object sender, RoutedEventArgs e)
-    //{
-    //    Customer Evelina = new Customer("0739070223", "Evelina", "Nilsson");
-    //    //Skapar en kund
-
-    //    SavingsAccount savings = new SavingsAccount();
-    //    RetirementAccount retirement = new RetirementAccount();
-    //    CheckingAccount checking = new CheckingAccount();
-    //    //skapat variabler för de olika kontotyperna
-
-    //    Evelina.BankAccounts.Add(savings);
-    //    Evelina.BankAccounts.Add(retirement);
-    //    Evelina.BankAccounts.Add(checking);
-    //    //Evelina har fått tre olika konton
-
-    //    checking.Deposit(500);
-
-    //    checking.Withdrawal(1500);
-
-    //    MessageBox.Show(Evelina.BankAccounts[2].GetBalance().ToString());
-    //}
 }
 

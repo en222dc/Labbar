@@ -10,7 +10,7 @@ namespace Bank
     {
         public decimal Credit { get; protected set; }
 
-        public CheckingAccount()
+        public CheckingAccount(decimal c)
         {
             AccountType = "Lönekonto";
         }
