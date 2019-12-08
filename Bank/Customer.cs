@@ -26,7 +26,7 @@ namespace Bank
 
         public bool AddBankAccount(BankAccount bankAccount)
         {
-            if (bankAccounts.Count < 4)
+            if (bankAccounts.Count < 6)
             {
                 bankAccounts.Add(bankAccount);
                 return true;

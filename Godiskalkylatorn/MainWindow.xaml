@@ -1,0 +1,33 @@
+﻿<Window x:Class="Godiskalkylatorn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Godiskalkylatorn"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnAddPerson" Content="Lägg till person" HorizontalAlignment="Left" Margin="58,308,0,0" VerticalAlignment="Top" Width="129" Height="58" Click="btnAddPerson_Click"/>
+        
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="58,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="58,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        
+        <ListBox x:Name="lstSortCandy" HorizontalAlignment="Left" Height="285" Margin="276,81,0,0" VerticalAlignment="Top" Width="185"/>
+       
+        <TextBox x:Name="txtNumberOfCandies" HorizontalAlignment="Left" Height="23" Margin="569,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        
+        <Button x:Name="btnDivideCandy" Content="Fördela godis" HorizontalAlignment="Left" Margin="560,226,0,0" VerticalAlignment="Top" Width="129" Height="58" Click="btnDivideCandy_Click"/>
+        
+        <Button x:Name="btnSave" Content="Spara" HorizontalAlignment="Left" Margin="560,308,0,0" VerticalAlignment="Top" Width="129" Height="58" Click="btnSave_Click"/>
+        
+        <Label Content="Namn" HorizontalAlignment="Left" Margin="58,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ålder" HorizontalAlignment="Left" Margin="62,111,0,0" VerticalAlignment="Top"/>
+        <Label Content="Antal godisar att fördela" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,142,0,0"/>
+       
+        <RadioButton x:Name="optOriginal" Content="Orginalfördelning" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,69,0,0"/>
+        <RadioButton x:Name="optAge" Content="Ålder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,92,0,0"/>
+        <RadioButton x:Name="optName" Content="Bokstavsordning" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,117,0,0"/>
+
+    </Grid>
+</Window>
