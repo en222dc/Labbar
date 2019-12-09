@@ -97,10 +97,6 @@ namespace Godiskalkylatorn
             FileOperations.Serialize(candyEaters, "candyEaters.bin");
         }
 
-        public int GetNumberOfCandies()
-        {
-            return NumberOfCandies;
-        }
     }
 
 }
