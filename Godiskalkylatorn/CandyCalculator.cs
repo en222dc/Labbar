@@ -13,13 +13,16 @@ namespace Godiskalkylatorn
     class CandyCalculator
     {
         public int NumberOfCandies { get; set; }
+
         private List<Person> candyEaters = new List<Person>();
 
+        public CandyCalculator(int numberOfCandies)
+        {
+            NumberOfCandies = numberOfCandies;
+        }
         public CandyCalculator()
         {
-
         }
-
 
         public void AddPerson(int age, string name)
         {
@@ -32,7 +35,7 @@ namespace Godiskalkylatorn
         }
 
 
-        public List<Person> DivideCandy(int NumberOfCandies)
+        public List<Person> DivideCandy()
         {
             while (NumberOfCandies != 0)
             {
@@ -47,7 +50,7 @@ namespace Godiskalkylatorn
             return candyEaters;
         }
 
-        public List<Person> DivideCandyByAge(int NumberOfCandies)
+        public List<Person> DivideCandyByAge()
         {
             while (NumberOfCandies != 0)
             {
@@ -62,7 +65,7 @@ namespace Godiskalkylatorn
             return candyEaters.OrderBy(x => x.Age).ToList();
         }
 
-        public List<Person> DivideCandyByName(int NumberOfCandies)
+        public List<Person> DivideCandyByName()
         {
             while (NumberOfCandies != 0)
             {
@@ -94,6 +97,10 @@ namespace Godiskalkylatorn
             FileOperations.Serialize(candyEaters, "candyEaters.bin");
         }
 
+        public int GetNumberOfCandies()
+        {
+            return NumberOfCandies;
+        }
     }
 
 }

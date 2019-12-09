@@ -26,25 +26,25 @@ namespace Godiskalkylatorn
         {
             InitializeComponent();
             candyCalculator.GetPeople();
-            UpdateList(0);
+            UpdateList();
         }
 
-        public void UpdateList(int numberOfCandies)
+        public void UpdateList()
         {
             lstSortCandy.ItemsSource = null;
-            lstSortCandy.ItemsSource = candyCalculator.DivideCandy(numberOfCandies);
+            lstSortCandy.ItemsSource = candyCalculator.DivideCandy();
         }
 
-        public void UpdateListByAge(int numberOfCandies)
+        public void UpdateListByAge()
         {
             lstSortCandy.ItemsSource = null;
-            lstSortCandy.ItemsSource = candyCalculator.DivideCandyByAge(numberOfCandies);
+            lstSortCandy.ItemsSource = candyCalculator.DivideCandyByAge();
         }
 
-        public void UpdateListByName(int numberOfCandies)
+        public void UpdateListByName()
         {
             lstSortCandy.ItemsSource = null;
-            lstSortCandy.ItemsSource = candyCalculator.DivideCandyByName(numberOfCandies);
+            lstSortCandy.ItemsSource = candyCalculator.DivideCandyByName();
         }
 
         private void btnAddPerson_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace Godiskalkylatorn
                 candyCalculator.AddPerson(age, txtName.Text);
             else
                 MessageBox.Show("Var vänlig och ange ålder med heltal samt namn.");
-            UpdateList(0);
+            UpdateList();
             txtName.Clear();
             txtAge.Clear();
             txtName.Focus();
@@ -65,12 +65,13 @@ namespace Godiskalkylatorn
 
             if (int.TryParse(txtNumberOfCandies.Text, out int numberOfCandies))
             {
+                candyCalculator.NumberOfCandies = numberOfCandies;
                 if (optOriginal.IsChecked == true)
-                    UpdateList(numberOfCandies);
+                    UpdateList();
                 else if (optAge.IsChecked == true)
-                    UpdateListByAge(numberOfCandies);
+                    UpdateListByAge();
                 else if (optName.IsChecked == true)
-                    UpdateListByName(numberOfCandies);
+                    UpdateListByName();
             }
             else
                 MessageBox.Show("Var vänlig fyll i antalet godisar som ska fördelas, samt välj önskad sorteringsmetod.");
