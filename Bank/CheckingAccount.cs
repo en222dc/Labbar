@@ -8,8 +8,6 @@ namespace Bank
 {
     class CheckingAccount : BankAccount
     {
-        public decimal Credit { get; protected set; }
-
         public CheckingAccount(decimal c)
         {
             Credit = c;

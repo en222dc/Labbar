@@ -10,6 +10,8 @@ namespace Bank
     {
         public string AccountType { get; set; }
         public decimal Balance { get; protected set; }
+        public decimal Credit { get; protected set; }
+
         //skapat properties
 
         public void Deposit(decimal deposit)

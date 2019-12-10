@@ -22,6 +22,7 @@ namespace Godiskalkylatorn
         }
         public CandyCalculator()
         {
+
         }
 
         public void AddPerson(int age, string name)
